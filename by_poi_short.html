@@ -181,12 +181,10 @@ if (window.addEventListener) {
         const scrollY = document.querySelector(".native-scrollbar-y");
         const scrollX = document.querySelector(".native-scrollbar-x");
 
-        // Virtual view offsets
         let viewX = 0;
         let viewY = 0;
 
         let lines = [
-            // Example line at fixed virtual coordinates
             {x: 930, color: "red", width: 3, text: "POI 2 fully declines"},
             {x: 1560, color: "red", width: 3, text: "POI 969 fully declines"},
         ];
@@ -195,6 +193,8 @@ if (window.addEventListener) {
             overlay.width = baseCanvas.width;
             overlay.height = baseCanvas.height;
 
+            const pop = document.getElementById("embed_1087974296");
+
             ctxOverlay.clearRect(0, 0, overlay.width, overlay.height);
 
             for (const line of lines) {
@@ -202,8 +202,7 @@ if (window.addEventListener) {
                 ctxOverlay.lineWidth = line.width;
                 ctxOverlay.beginPath();
 
-                // Convert virtual space → visible region
-                const convX = line.x / 1873 * baseCanvas.width;
+                const convX = line.x / 1577 * pop.offsetWidth;
 
                 ctxOverlay.moveTo(convX - viewX, 55);
                 ctxOverlay.lineTo(convX - viewX, baseCanvas.height);

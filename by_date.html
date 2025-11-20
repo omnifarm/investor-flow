@@ -195,6 +195,8 @@ if (window.addEventListener) {
             overlay.width = baseCanvas.width;
             overlay.height = baseCanvas.height;
 
+            const pop = document.getElementById("embed_189713422");
+
             ctxOverlay.clearRect(0, 0, overlay.width, overlay.height);
 
             for (const line of lines) {
@@ -202,8 +204,7 @@ if (window.addEventListener) {
                 ctxOverlay.lineWidth = line.width;
                 ctxOverlay.beginPath();
 
-                // Convert virtual space → visible region
-                const convX = line.x / 1873 * baseCanvas.width;
+                const convX = line.x / 1577 * pop.offsetWidth;
 
                 ctxOverlay.moveTo(convX - viewX, 55);
                 ctxOverlay.lineTo(convX - viewX, baseCanvas.height);
